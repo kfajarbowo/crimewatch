@@ -5,6 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrimeWatch</title>
     <link href="./output.css" rel="stylesheet">
+    <style>
+        body, html {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+     display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom styling untuk partial visibility */
+        .tiktok-slide {
+            scroll-snap-align: start;
+            margin-right: 12px;
+        }
+
+
+        .tiktok-slide:last-child {
+            margin-right: 0;
+        }
+
+
+            /* TikTok Slider Navigation Arrows - Sembunyikan di desktop */
+        #tiktok-prev, #tiktok-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s ease;
+            display: none; /* Default hidden untuk semua device */
+        }
+
+        #tiktok-prev:hover, #tiktok-next:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #tiktok-prev {
+            left: 10px;
+        }
+
+        #tiktok-next {
+            right: 10px;
+        }
+
+        /* TikTok arrows HANYA visible di mobile (bukan desktop) */
+        @media (max-width: 640px) {
+            #tiktok-prev, #tiktok-next {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+     /* Featured News Slider Styles */
+        .featured-slider-container {
+            position: relative;
+        }
+
+        .featured-slider-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .featured-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .featured-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+
+        .featured-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .featured-prev {
+            left: 15px;
+        }
+
+        .featured-next {
+            right: 15px;
+        }
+
+        /* Hide arrows on mobile */
+        @media (max-width: 768px) {
+            .featured-nav {
+                display: none;
+            }
+        }
+
+        /* Dot indicators */
+        .featured-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .featured-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .featured-dot.active {
+            background: #dc2626; /* red-600 */
+        }
+    </style>
     <script>
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -39,7 +177,7 @@
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-12" style="object-fit: contain; width: 25%; height: 25%;">
-                        <div class="ml-2">
+                        <div class="">
                             <span class="text-white font-bold text-lg">CRIME</span>
                             <span class="text-yellow-500 font-bold text-lg">WATCH.ID</span>
                         </div>
@@ -103,7 +241,7 @@
                         </svg>
                     </button>
                     <a href="index.html" class="flex items-center">
-                        <img src="./assets/image/logo.png" alt="Logo" class="w-12 h-12" style="object-fit: contain;">
+                        <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-16" style="object-fit: contain;">
                         <div class="ml-2">
                             <span class="text-white font-bold text-xl md:text-2xl">CRIME</span>
                             <span class="text-yellow-500 font-bold text-xl md:text-2xl">WATCH.ID</span>
@@ -152,186 +290,249 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
-        <!-- Featured News Section -->
+       <!-- Featured News Section -->
         <section class="mb-6 sm:mb-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
-                <!-- Main Featured News -->
+                <!-- Main Featured News Slider -->
                 <div class="col-span-1 lg:col-span-8">
-                    <div class="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                        <a href="detail-artikel.html" class="block">
-                            <div class="bg-gray-300 aspect-video sm:aspect-[16/9]">
-                                <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    <div class="featured-slider-container relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <!-- Slider Wrapper -->
+                        <div class="featured-slider-wrapper hide-scrollbar">
+                            <!-- Slide 1 -->
+                            <div class="featured-slide">
+                                <a href="detail-artikel.html" class="block">
+                                    <div class="bg-gray-300 aspect-video sm:aspect-[16/9] relative">
+                                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
+                                            <span class="inline-block text-red-400 font-medium text-xs sm:text-sm border-b-2 border-yellow-500 pb-1 mb-2 sm:mb-3">POLITIK</span>
+                                            <h1 class="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 line-clamp-2">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h1>
+                                            <p class="text-xs sm:text-sm text-gray-200">Selasa, 16 September 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
-                                <span class="inline-block text-red-600 font-medium text-xs sm:text-sm border-b-2 border-yellow-500 pb-1 mb-2 sm:mb-3">POLITIK</span>
-                                <h1 class="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 hover:text-yellow-400 transition-colors line-clamp-2">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h1>
-                                <p class="text-xs sm:text-sm text-gray-200">Selasa, 16 September 2025 - 10:00 WIB</p>
+                            
+                            <!-- Slide 2 -->
+                            <div class="featured-slide">
+                                <a href="detail-artikel.html" class="block">
+                                    <div class="bg-gray-300 aspect-video sm:aspect-[16/9] relative">
+                                        <img src="https://placehold.co/800x450/333333/ffffff" alt="Berita Terbaru" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
+                                            <span class="inline-block text-red-400 font-medium text-xs sm:text-sm border-b-2 border-yellow-500 pb-1 mb-2 sm:mb-3">KRIMINAL</span>
+                                            <h1 class="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 line-clamp-2">Tingkat Kriminalitas Turun 15% di Kuartal Ketiga 2025</h1>
+                                            <p class="text-xs sm:text-sm text-gray-200">Senin, 15 September 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                        <!-- Slider Navigation -->
-                        <div class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
-                            <button class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-600"></button>
-                            <button class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white bg-opacity-50"></button>
-                            <button class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white bg-opacity-50"></button>
-                            <button class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white bg-opacity-50"></button>
-                            <button class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white bg-opacity-50"></button>
+                            
+                            <!-- Slide 3 -->
+                            <div class="featured-slide">
+                                <a href="detail-artikel.html" class="block">
+                                    <div class="bg-gray-300 aspect-video sm:aspect-[16/9] relative">
+                                        <img src="https://placehold.co/800x450/555555/ffffff" alt="Berita Lantas" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
+                                            <span class="inline-block text-red-400 font-medium text-xs sm:text-sm border-b-2 border-yellow-500 pb-1 mb-2 sm:mb-3">LANTAS</span>
+                                            <h1 class="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 line-clamp-2">Operasi Penertiban Lalu Lintas Berhasil Turunkan Angka Kecelakaan</h1>
+                                            <p class="text-xs sm:text-sm text-gray-200">Minggu, 14 September 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Arrows -->
+                        <button class="featured-nav featured-prev hidden sm:flex">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button class="featured-nav featured-next hidden sm:flex">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dot Indicators -->
+                        <div class="featured-dots">
+                            <button class="featured-dot active" data-slide="0"></button>
+                            <button class="featured-dot" data-slide="1"></button>
+                            <button class="featured-dot" data-slide="2"></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Popular News Sidebar -->
+                <!-- Popular News Sidebar (Tetap Sama) -->
                 <div class="col-span-1 lg:col-span-4">
                     <h2 class="text-lg sm:text-xl font-bold text-red-600 mb-3 sm:mb-4">BERITA POPULER</h2>
                     <div class="space-y-3 sm:space-y-4">
-                        <div class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <a href="detail-artikel.html" class="flex items-start space-x-3 w-full">
-                                <div class="bg-gray-300 w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 rounded animate-pulse flex-shrink-0"></div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="text-xs sm:text-sm text-red-600 font-medium">POLITIK</span>
-                                    <h3 class="font-medium text-xs sm:text-sm group-hover:text-red-600 transition-colors line-clamp-2 mt-0.5">KPK Sita Uang Khalid Basalamah</h3>
-                                    <p class="text-xs text-gray-500 mt-1">Selasa, 16 September 2025 - 10:00 WIB</p>
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <!-- <span class="text-[10px] sm:text-xs text-gray-500"></span> -->
                                 </div>
-                            </a>
-                        </div>
-                        <div class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <a href="detail-artikel.html" class="flex items-start space-x-3 w-full">
-                                <div class="bg-gray-300 w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 rounded animate-pulse flex-shrink-0"></div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="text-xs sm:text-sm text-red-600 font-medium">POLITIK</span>
-                                    <h3 class="font-medium text-xs sm:text-sm group-hover:text-red-600 transition-colors line-clamp-2 mt-0.5">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                    <p class="text-xs text-gray-500 mt-1">Selasa, 16 September 2025 - 10:00 WIB</p>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1 mt-1">16 September 2025</span>
+                            </div>
+                        </a>
+
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <!-- <span class="text-[10px] sm:text-xs text-gray-500"></span> -->
                                 </div>
-                            </a>
-                        </div>
-                        <div class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <a href="detail-artikel.html" class="flex items-start space-x-3 w-full">
-                                <div class="bg-gray-300 w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 rounded animate-pulse flex-shrink-0"></div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="text-xs sm:text-sm text-red-600 font-medium">POLITIK</span>
-                                    <h3 class="font-medium text-xs sm:text-sm group-hover:text-red-600 transition-colors line-clamp-2 mt-0.5">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag KPK...</h3>
-                                    <p class="text-xs text-gray-500 mt-1">Selasa, 16 September 2025 - 10:00 WIB</p>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1 mt-1">16 September 2025</span>
+                            </div>
+                        </a>
+
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <!-- <span class="text-[10px] sm:text-xs text-gray-500"></span> -->
                                 </div>
-                            </a>
-                        </div>
-                        <div class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <a href="detail-artikel.html" class="flex items-start space-x-3 w-full">
-                                <div class="bg-gray-300 w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 rounded animate-pulse flex-shrink-0"></div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="text-xs sm:text-sm text-red-600 font-medium">POLITIK</span>
-                                    <h3 class="font-medium text-xs sm:text-sm group-hover:text-red-600 transition-colors line-clamp-2 mt-0.5">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag KPK...</h3>
-                                    <p class="text-xs text-gray-500 mt-1">Selasa, 16 September 2025 - 10:00 WIB</p>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1 mt-1">16 September 2025</span>
+                            </div>
+                        </a>
+
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <!-- <span class="text-[10px] sm:text-xs text-gray-500"></span> -->
                                 </div>
-                            </a>
-                        </div>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1 mt-1">16 September 2025</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TikTok Content Section -->
+       <!-- TikTok Content Section -->
         <section class="mb-8 sm:mb-12">
             <div class="flex justify-between items-center mb-3 sm:mb-4">
                 <h2 class="text-lg sm:text-xl font-bold text-red-600">KONTEN TIKTOK TERBARU</h2>
                 <a href="#" class="text-gray-500 text-xs sm:text-sm hover:text-red-600 whitespace-nowrap">Lihat lainnya →</a>
             </div>
-            <div class="flex overflow-x-auto pb-4 space-x-3 sm:space-x-4 hide-scrollbar">
-                <!-- Custom scrollbar styling -->
-                <style>
-                    .hide-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                    .hide-scrollbar {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
-                </style>
-                <!-- TikTok Video Card 1 -->
-                <div class="relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0">
-                    <div class="aspect-[9/16] relative">
-                        <div class="bg-gray-200 w-full h-full">
-                            <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
+            
+            <!-- TikTok Slider Container -->
+            <div class="relative">
+                <!-- Slider Wrapper -->
+                <div id="tiktok-slider" class="flex overflow-x-auto pb-4 space-x-3 sm:space-x-4 hide-scrollbar snap-x snap-mandatory scroll-smooth">
+                    <!-- TikTok Video Cards -->
+                    <div class="tiktok-slide relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0 snap-start">
+                        <div class="aspect-[9/16] relative">
+                            <div class="bg-gray-200 w-full h-full">
+                                <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
+                                <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
+                                <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
+                                <div class="flex items-center mt-1 sm:mt-2">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <span class="text-white text-xs ml-1">763</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
-                            <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
-                            <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
-                            <div class="flex items-center mt-1 sm:mt-2">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <span class="text-white text-xs ml-1">763</span>
+                    </div>
+                    
+                    <!-- Repeat for other TikTok videos -->
+                    <div class="tiktok-slide relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0 snap-start">
+                        <div class="aspect-[9/16] relative">
+                            <div class="bg-gray-200 w-full h-full">
+                                <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
+                                <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">KPK Sita Uang Khalid Basalamah</h3>
+                                <p class="text-gray-200 text-xs hidden sm:block">Kasus Korupsi Kuota Haji</p>
+                                <div class="flex items-center mt-1 sm:mt-2">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <span class="text-white text-xs ml-1">542</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tiktok-slide relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0 snap-start">
+                        <div class="aspect-[9/16] relative">
+                            <div class="bg-gray-200 w-full h-full">
+                                <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
+                                <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">Tingkat Kriminalitas Turun 15%</h3>
+                                <p class="text-gray-200 text-xs hidden sm:block">Capaihan Positif Polri</p>
+                                <div class="flex items-center mt-1 sm:mt-2">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <span class="text-white text-xs ml-1">891</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tiktok-slide relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0 snap-start">
+                        <div class="aspect-[9/16] relative">
+                            <div class="bg-gray-200 w-full h-full">
+                                <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
+                                <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">Operasi Penertiban Lalu Lintas</h3>
+                                <p class="text-gray-200 text-xs hidden sm:block">Giat Rutin Polisi</p>
+                                <div class="flex items-center mt-1 sm:mt-2">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <span class="text-white text-xs ml-1">324</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- See More Card (Last Slide) -->
+                    <div class="tiktok-slide relative rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-br from-red-600 to-red-800 shadow-md hover:shadow-lg transition-shadow min-w-[180px] sm:min-w-[220px] flex-shrink-0 snap-start">
+                        <div class="aspect-[9/16] relative flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <div class="bg-white/20 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-white text-sm sm:text-base font-bold mb-2">Lihat Lebih Banyak</h3>
+                                <p class="text-white/80 text-xs">Temukan konten TikTok menarik lainnya</p>
+                                <button class="mt-3 bg-white text-red-600 px-4 py-1.5 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                                    See More
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Repeat for other TikTok videos with same structure -->
-                <div class="relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow">
-                    <div class="aspect-[9/16] relative">
-                        <div class="bg-gray-200 w-full h-full">
-                            <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
-                            <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
-                            <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
-                            <div class="flex items-center mt-1 sm:mt-2">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <span class="text-white text-xs ml-1">763</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow">
-                    <div class="aspect-[9/16] relative">
-                        <div class="bg-gray-200 w-full h-full">
-                            <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
-                            <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
-                            <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
-                            <div class="flex items-center mt-1 sm:mt-2">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <span class="text-white text-xs ml-1">763</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow">
-                    <div class="aspect-[9/16] relative">
-                        <div class="bg-gray-200 w-full h-full">
-                            <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
-                            <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
-                            <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
-                            <div class="flex items-center mt-1 sm:mt-2">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <span class="text-white text-xs ml-1">763</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative rounded-lg sm:rounded-xl overflow-hidden bg-black shadow-md hover:shadow-lg transition-shadow">
-                    <div class="aspect-[9/16] relative">
-                        <div class="bg-gray-200 w-full h-full">
-                            <img src="https://placehold.co/300x533/e5e7eb/ffffff" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black via-black/70 to-transparent">
-                            <h3 class="text-white text-xs sm:text-sm font-medium mb-1 line-clamp-2">3 Orang Hilang Saat Demo Agustus, Polisi</h3>
-                            <p class="text-gray-200 text-xs hidden sm:block">Buka Posko Khusus</p>
-                            <div class="flex items-center mt-1 sm:mt-2">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                                <span class="text-white text-xs ml-1">763</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                <!-- Navigation Arrows (Optional) -->
+                <button id="tiktok-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden sm:flex items-center justify-center z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button id="tiktok-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden sm:flex items-center justify-center z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
         </section>
 
@@ -349,18 +550,13 @@
                     <article class="bg-white rounded-lg overflow-hidden shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
                         <a href="detail-artikel.html" class="block">
                             <div class="flex flex-col sm:flex-row">
-                                <div class="w-full sm:w-40 lg:w-48 h-32 sm:h-28 lg:h-32 flex-shrink-0">
-                                    <div class="bg-gray-200 w-full h-full animate-pulse"></div>
+                                <div class="w-full sm:w-40 lg:w-48 h-48 sm:h-28 lg:h-32 flex-shrink-0">
+                                    <div class="bg-gray-200 w-full h-full"></div>
                                 </div>
                                 <div class="flex-1 p-3 sm:p-4">
-                                    <div class="inline-flex items-center space-x-2">
-                                        <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
-                                        <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
-                                    </div>
-                                    <h3 class="font-bold text-xs sm:text-sm lg:text-base mt-2 mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
-                                    <div class="flex flex-col text-[10px] sm:text-xs text-gray-500">
-                                        <span class="line-clamp-1">Tim Redaksi</span>
-                                    </div>
+                                    <span class="inline-block text-xs sm:text-sm text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <h3 class="font-bold text-sm sm:text-base lg:text-lg mt-1 mb-1 sm:mb-2 group-hover:text-red-600 transition-colors line-clamp-2">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
+                                    <p class="text-xs sm:text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
                                 </div>
                             </div>
                         </a>
@@ -702,5 +898,198 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Featured News Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuredSlider = document.querySelector('.featured-slider-wrapper');
+            const featuredSlides = document.querySelectorAll('.featured-slide');
+            const featuredPrev = document.querySelector('.featured-prev');
+            const featuredNext = document.querySelector('.featured-next');
+            const featuredDots = document.querySelectorAll('.featured-dot');
+            
+            if (featuredSlider && featuredSlides.length > 0) {
+                let currentSlide = 0;
+                
+                // Update dots and arrows
+                function updateSlider() {
+                    // Update dots
+                    featuredDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                    
+                    // Update arrows visibility
+                    if (featuredPrev && featuredNext) {
+                        featuredPrev.style.display = currentSlide === 0 ? 'none' : 'flex';
+                        featuredNext.style.display = currentSlide === featuredSlides.length - 1 ? 'none' : 'flex';
+                    }
+                }
+                
+                // Go to specific slide
+                function goToSlide(index) {
+                    currentSlide = index;
+                    featuredSlider.scrollTo({
+                        left: featuredSlider.offsetWidth * index,
+                        behavior: 'smooth'
+                    });
+                    updateSlider();
+                }
+                
+                // Next slide
+                function nextSlide() {
+                    if (currentSlide < featuredSlides.length - 1) {
+                        goToSlide(currentSlide + 1);
+                    }
+                }
+                
+                // Previous slide
+                function prevSlide() {
+                    if (currentSlide > 0) {
+                        goToSlide(currentSlide - 1);
+                    }
+                }
+                
+                // Event listeners for arrows
+                if (featuredNext) {
+                    featuredNext.addEventListener('click', nextSlide);
+                }
+                
+                if (featuredPrev) {
+                    featuredPrev.addEventListener('click', prevSlide);
+                }
+                
+                // Event listeners for dots
+                featuredDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => goToSlide(index));
+                });
+                
+                // Auto slide every 5 seconds
+                setInterval(() => {
+                    if (currentSlide < featuredSlides.length - 1) {
+                        nextSlide();
+                    } else {
+                        goToSlide(0); // Loop back to first slide
+                    }
+                }, 5000);
+                
+                // Update slider on scroll (for touch devices)
+                featuredSlider.addEventListener('scroll', () => {
+                    const scrollPos = featuredSlider.scrollLeft;
+                    const slideWidth = featuredSlider.offsetWidth;
+                    const newSlide = Math.round(scrollPos / slideWidth);
+                    
+                    if (newSlide !== currentSlide) {
+                        currentSlide = newSlide;
+                        updateSlider();
+                    }
+                });
+                
+                // Initialize slider
+                updateSlider();
+                
+                // Touch support for mobile
+                let startX = 0;
+                let scrollLeft = 0;
+                
+                featuredSlider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].pageX;
+                    scrollLeft = featuredSlider.scrollLeft;
+                });
+                
+                featuredSlider.addEventListener('touchmove', (e) => {
+                    if (!startX) return;
+                    const x = e.touches[0].pageX;
+                    const walk = (x - startX) * 2;
+                    featuredSlider.scrollLeft = scrollLeft - walk;
+                });
+            }
+        });
+        // TikTok Slider Functionality - Diperbarui
+        document.addEventListener('DOMContentLoaded', function() {
+            const tiktokSlider = document.getElementById('tiktok-slider');
+            const tiktokPrev = document.getElementById('tiktok-prev');
+            const tiktokNext = document.getElementById('tiktok-next');
+            const tiktokSlides = document.querySelectorAll('.tiktok-slide');
+            
+            if (tiktokSlider && tiktokSlides.length > 0) {
+                let currentTiktokSlide = 0;
+                
+                // Function to update TikTok slider navigation
+                function updateTiktokSlider() {
+                    if (tiktokPrev && tiktokNext) {
+                        // Hapus logika show/hide arrows karena sudah diatur CSS
+                        // Biarkan CSS media query yang mengatur visibility
+                    }
+                }
+                
+                // Go to specific TikTok slide
+                function goToTiktokSlide(index) {
+                    currentTiktokSlide = index;
+                    if (tiktokSlides[currentTiktokSlide]) {
+                        tiktokSlides[currentTiktokSlide].scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'start'
+                        });
+                    }
+                    updateTiktokSlider();
+                }
+                
+                // Next TikTok slide
+                function nextTiktokSlide() {
+                    if (currentTiktokSlide < tiktokSlides.length - 1) {
+                        goToTiktokSlide(currentTiktokSlide + 1);
+                    }
+                }
+                
+                // Previous TikTok slide
+                function prevTiktokSlide() {
+                    if (currentTiktokSlide > 0) {
+                        goToTiktokSlide(currentTiktokSlide - 1);
+                    }
+                }
+                
+                // Event listeners for TikTok arrows (tetap ada untuk mobile)
+                if (tiktokNext) {
+                    tiktokNext.addEventListener('click', nextTiktokSlide);
+                }
+                
+                if (tiktokPrev) {
+                    tiktokPrev.addEventListener('click', prevTiktokSlide);
+                }
+                
+                // Update TikTok slider on scroll
+                tiktokSlider.addEventListener('scroll', () => {
+                    const scrollPos = tiktokSlider.scrollLeft;
+                    const slideWidth = tiktokSlides[0].offsetWidth + 12;
+                    const newSlide = Math.round(scrollPos / slideWidth);
+                    
+                    if (newSlide !== currentTiktokSlide && newSlide >= 0 && newSlide < tiktokSlides.length) {
+                        currentTiktokSlide = newSlide;
+                        updateTiktokSlider();
+                    }
+                });
+                
+                // Touch support for TikTok slider
+                let tiktokStartX = 0;
+                let tiktokScrollLeft = 0;
+                
+                tiktokSlider.addEventListener('touchstart', (e) => {
+                    tiktokStartX = e.touches[0].pageX;
+                    tiktokScrollLeft = tiktokSlider.scrollLeft;
+                });
+                
+                tiktokSlider.addEventListener('touchmove', (e) => {
+                    if (!tiktokStartX) return;
+                    const x = e.touches[0].pageX;
+                    const walk = (x - tiktokStartX) * 2;
+                    tiktokSlider.scrollLeft = tiktokScrollLeft - walk;
+                });
+                
+                // Initialize TikTok slider
+                updateTiktokSlider();
+            }
+        });
+        </script>
 </body>
 </html>
