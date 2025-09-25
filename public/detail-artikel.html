@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag - CrimeWatch</title>
     <link href="./output.css" rel="stylesheet">
+    <style>
+        /* Additional CSS for logo sizing */
+        .header-logo {
+            width: 120px;
+            height: auto;
+        }
+        
+        .mobile-logo {
+            width: 100px;
+            height: auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-logo {
+                width: 100px;
+            }
+        }
+    </style>
     <script>
-        // Mobile menu functionality
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const overlay = document.getElementById('mobile-overlay');
@@ -26,24 +44,6 @@
             overlay.classList.add('hidden');
             body.classList.remove('overflow-hidden');
         }
-
-        // Share functionality
-        function shareArticle(platform) {
-            const url = window.location.href;
-            const title = document.title;
-            
-            switch(platform) {
-                case 'facebook':
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-                    break;
-                case 'twitter':
-                    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`);
-                    break;
-                case 'whatsapp':
-                    window.open(`https://wa.me/?text=${title} ${url}`);
-                    break;
-            }
-        }
     </script>
 </head>
 <body class="bg-gray-50">
@@ -51,13 +51,13 @@
     <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeMobileMenu()"></div>
 
     <!-- Mobile Sidebar Menu -->
-    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
         <div class="flex flex-col h-full">
             <!-- Mobile Menu Header -->
             <div class="bg-red-700 p-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <img src="./assets/image/logo.png" alt="Logo" class="w-8 h-8 rounded-full">
+                        <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-12" style="object-fit: contain; width: 25%; height: 25%;">
                         <div class="ml-2">
                             <span class="text-white font-bold text-lg">CRIME</span>
                             <span class="text-yellow-500 font-bold text-lg">WATCH.ID</span>
@@ -70,6 +70,7 @@
                     </button>
                 </div>
             </div>
+
 
             <!-- Mobile Search and Login -->
             <div class="p-4 border-b">
@@ -108,65 +109,64 @@
     </div>
 
     <!-- Main Header -->
-    <header>
-        <!-- Upper Header -->
-        <div class="bg-red-700">
-            <div class="container mx-auto px-4 py-3">
-                <div class="flex items-center justify-between">
-                    <!-- Logo and Menu Button -->
-                    <div class="flex items-center space-x-4">
-                        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+<header>
+    <!-- Upper Header -->
+    <div class="bg-red-700">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo and Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex items-center">
+                        <img src="./assets/image/logo.png" alt="Logo" class="w-12 h-12" style="object-fit: contain;">
+                        <div class="ml-2">
+                            <span class="text-white font-bold text-xl md:text-2xl">CRIME</span>
+                            <span class="text-yellow-500 font-bold text-xl md:text-2xl">WATCH.ID</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Search and Login -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" 
+                            placeholder="Apa yang kamu cari?" 
+                            class="w-[400px] rounded-full py-2 px-6 text-sm focus:outline-none"
+                        >
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
                         </button>
-                        <a href="index.html" class="flex items-center">
-                            <img src="./assets/image/logo.png" alt="Logo" class="w-10 h-10" style="object-fit: contain; width: 7%; height: 7%;">
-                            <div class="ml-2">
-                                <span class="text-white font-bold text-xl md:text-2xl">CRIME</span>
-                                <span class="text-yellow-500 font-bold text-xl md:text-2xl">WATCH.ID</span>
-                            </div>
-                        </a>
                     </div>
-                    
-                    <!-- Desktop Search and Login -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <div class="relative">
-                            <input type="text" 
-                                placeholder="Apa yang kamu cari?" 
-                                class="w-[400px] rounded-full py-2 px-6 text-sm focus:outline-none"
-                            >
-                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <button class="bg-white text-red-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100">
-                            Masuk
-                        </button>
-                    </div>
+                    <button class="bg-white text-red-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100">
+                        Masuk
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="bg-red-700 border-t border-red-800 hidden md:block">
-            <div class="container mx-auto">
-                <ul class="flex justify-center space-x-8 lg:space-x-12">
-                    <li><a href="index.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">NEWS</a></li>
-                    <li><a href="polri.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLRI</a></li>
-                    <li><a href="kriminal.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">KRIMINAL</a></li>
-                    <li><a href="bhabin.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">BHABIN</a></li>
-                    <li><a href="lantas.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">LANTAS</a></li>
-                    <li><a href="politik.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLITIK</a></li>
-                    <li><a href="ragam.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">RAGAM</a></li>
-                    <li><a href="indeks.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">INDEKS</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
+    <!-- Desktop Navigation -->
+    <nav class="bg-red-700 border-t border-red-800 hidden md:block">
+        <div class="container mx-auto">
+            <ul class="flex justify-center space-x-8 lg:space-x-12">
+                <li><a href="index.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">NEWS</a></li>
+                <li><a href="polri.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLRI</a></li>
+                <li><a href="kriminal.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">KRIMINAL</a></li>
+                <li><a href="bhabin.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">BHABIN</a></li>
+                <li><a href="lantas.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">LANTAS</a></li>
+                <li><a href="politik.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLITIK</a></li>
+                <li><a href="ragam.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">RAGAM</a></li>
+                <li><a href="indeks.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">INDEKS</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-6">
         <!-- Breadcrumb -->
@@ -186,8 +186,8 @@
                     <div class="mb-6">
                         <h1 class="text-2xl md:text-3xl font-bold mb-3">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h1>
                         <div class="flex items-center justify-between flex-wrap gap-4">
-                            <div class="flex items-center text-sm text-gray-500">
-                                <span class="mr-4">Selasa, 16 September 2025 - 10:00 WIB</span>
+                            <div class="flex flex-col text-sm text-gray-500 space-y-1">
+                                <span>Selasa, 16 September 2025 - 10:00 WIB</span>
                                 <a href="#" class="text-red-600 hover:text-red-700">Tim Redaksi</a>
                             </div>
                             <!-- Share Buttons -->
@@ -250,9 +250,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Related Articles -->
-                  
                 </article>
             </div>
 
@@ -260,98 +257,41 @@
             <div class="lg:col-span-4">
                 <!-- Popular News Section -->
                 <div class="mb-8">
-                    <h2 class="text-xl font-bold text-red-600 mb-4">BERITA POPULER</h2>
-                    <div class="space-y-4">
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="text-sm text-red-600 font-medium">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                    <h2 class="text-lg sm:text-xl font-bold text-red-600 mb-3 sm:mb-4">BERITA POPULER</h2>
+                    <div class="space-y-3 sm:space-y-4">
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <!-- <span class="text-[10px] sm:text-xs text-gray-500"></span> -->
+                                </div>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1 mt-1">16 September 2025</span>
                             </div>
                         </a>
 
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="text-sm text-red-600 font-medium">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                                </div>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
                             </div>
                         </a>
 
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="text-sm text-red-600 font-medium">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- POLRI Section -->
-                <div class="mb-8">
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-xl font-bold text-red-600">POLRI</h2>
-                        <a href="#" class="text-gray-500 text-sm hover:text-red-600">Selengkapnya →</a>
-                    </div>
-                    <div class="space-y-4">
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- KRIMINAL Section -->
-                <div class="mb-8">
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-xl font-bold text-red-600">KRIMINAL</h2>
-                        <a href="#" class="text-gray-500 text-sm hover:text-red-600">Selengkapnya →</a>
-                    </div>
-                    <div class="space-y-4">
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                        <a href="detail-artikel.html" class="flex items-start space-x-3 bg-white rounded-lg p-2.5 sm:p-3 shadow-sm group hover:bg-gray-50 hover:shadow-md transition-all">
+                            <div class="w-16 h-12 sm:w-20 sm:h-14 lg:w-24 lg:h-16 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="inline-flex items-center space-x-2">
+                                    <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
+                                    <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                                </div>
+                                <h3 class="font-medium text-xs sm:text-sm mt-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
+                                <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
                             </div>
                         </a>
                     </div>
@@ -465,4 +405,4 @@
         </div>
     </footer>
 </body>
-</html> 
+</html>

@@ -38,7 +38,7 @@
             <div class="bg-red-700 p-4">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <img src="./assets/image/logo.png" alt="Logo" class="w-8 h-8 rounded-full">
+                        <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-12" style="object-fit: contain; width: 25%; height: 25%;">
                         <div class="ml-2">
                             <span class="text-white font-bold text-lg">CRIME</span>
                             <span class="text-yellow-500 font-bold text-lg">WATCH.ID</span>
@@ -158,124 +158,166 @@
         </div>
 
         <!-- Category Title -->
-        <h1 class="text-red-600 text-2xl font-bold mb-6 mt-10">POLRI</h1>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
-            <!-- Main Content Column -->
-            <div class="lg:col-span-8">
-                <!-- Featured Article -->
-                <div class="relative rounded-lg overflow-hidden">
-                    <a href="detail-artikel.html" class="block">
-                        <div class="bg-gray-300 aspect-[16/9]">
-                            <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent text-white">
-                            <span class="inline-block bg-red-600 text-white text-sm px-3 py-1 rounded-full mb-3">POLITIK</span>
-                            <h2 class="text-2xl font-bold mb-2 hover:text-yellow-500 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h2>
-                            <p class="text-sm text-gray-200">Selasa, 16 September 2025 - 10:00 WIB</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="lg:col-span-4">
-                <!-- Popular News Section -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-red-600 mb-4">BERITA POPULER</h2>
-                    <div class="space-y-4">
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="inline-block text-sm text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="inline-block text-sm text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-
-                        <a href="detail-artikel.html" class="flex items-center space-x-4 bg-white rounded-lg p-3 shadow-sm group hover:bg-gray-50 transition-colors">
-                            <div class="w-24 h-16 bg-gray-200 rounded"></div>
-                            <div class="flex-1">
-                                <span class="inline-block text-sm text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLITIK</span>
-                                <h3 class="font-medium text-sm group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h3>
-                                <p class="text-xs text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold">
+                <span class="text-red-600 border-b-2 border-yellow-500 pb-1">POLRI</span>
+            </h1>
+            <div class="text-sm text-gray-500">12,345 artikel</div>
         </div>
 
         <!-- Article Grid -->
-        <div class="border-t-2 border-yellow-500 pt-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Featured Article -->
+            <div class="md:col-span-2 lg:col-span-3">
                 <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                    <div class="relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="bg-gray-300 aspect-[21/9]">
+                            <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
+                            <div class="inline-flex items-center space-x-2 mb-2">
+                                <span class="text-[10px] sm:text-xs text-red-600 font-medium border-b-2 border-yellow-500 pb-1">POLRI</span>
+                                <span class="text-[10px] sm:text-xs text-gray-300">16 September 2025</span>
+                            </div>
+                            <h2 class="text-lg sm:text-2xl font-bold mb-1 sm:mb-2 group-hover:text-yellow-400 transition-colors line-clamp-2">KPK Sita Uang Khalid Basalamah di Kasus Korupsi Kuota Haji Kemenag</h2>
+                            <span class="text-[10px] sm:text-xs text-gray-300">Tim Redaksi</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Regular Articles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 col-span-full">
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
 
-                <a href="detail-artikel.html" class="block group">
-                    <div class="bg-gray-300 aspect-video rounded animate-pulse mb-3"></div>
-                    <h3 class="font-bold text-lg mb-2 group-hover:text-red-600 transition-colors">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
-                    <p class="text-sm text-gray-500">Selasa, 16 September 2025 - 10:00 WIB</p>
+                <a href="detail-artikel.html" class="block group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-gray-300 aspect-video rounded-t">
+                        <img src="./assets/image/ustad-khalid.jpeg" alt="KPK Sita Uang Khalid Basalamah" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <div class="inline-flex items-center space-x-2 mb-2">
+                            <span class="text-[10px] sm:text-xs text-red-600 font-medium bg-red-50 px-2 py-0.5 rounded">POLRI</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">16 September 2025</span>
+                        </div>
+                        <h3 class="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">KPK Sita Uang Khalid Basalamah di Kasus Korupsi</h3>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-clamp-1">Tim Redaksi</span>
+                    </div>
                 </a>
             </div>
 
             <!-- Load More Button -->
-            <div class="text-center mt-8">
-                <button class="text-red-600 hover:text-red-700 font-medium">
+            <div class="text-center mt-6 sm:mt-8">
+                <button class="text-red-600 hover:text-red-700 font-medium text-sm sm:text-base px-4 py-2 hover:bg-red-50 rounded-lg transition-all">
                     Muat Lebih Banyak
                 </button>
             </div>
