@@ -31,15 +31,15 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeMobileMenu()"></div>
 
-    <!-- Mobile Sidebar Menu -->
-    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+     <!-- Mobile Sidebar Menu -->
+     <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
         <div class="flex flex-col h-full">
             <!-- Mobile Menu Header -->
-            <div class="bg-red-700 p-4">
+            <div class="bg-red-700 p-1">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-12" style="object-fit: contain; width: 25%; height: 25%;">
-                        <div class="ml-2">
+                        <div class="">
                             <span class="text-white font-bold text-lg">CRIME</span>
                             <span class="text-yellow-500 font-bold text-lg">WATCH.ID</span>
                         </div>
@@ -51,6 +51,7 @@
                     </button>
                 </div>
             </div>
+
 
             <!-- Mobile Search and Login -->
             <div class="p-4 border-b">
@@ -89,64 +90,64 @@
     </div>
 
     <!-- Main Header -->
-    <header>
-        <!-- Upper Header -->
-        <div class="bg-red-700">
-            <div class="container mx-auto px-4 py-3">
-                <div class="flex items-center justify-between">
-                    <!-- Logo and Menu Button -->
-                    <div class="flex items-center space-x-4">
-                        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+<header>
+    <!-- Upper Header -->
+    <div class="bg-red-700">
+        <div class="container mx-auto px-4 py-1">
+            <div class="flex items-center justify-between">
+                <!-- Logo and Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex items-center">
+                        <img src="./assets/image/logo.png" alt="Logo" class="w-16 h-16" style="object-fit: contain;">
+                        <div class="">
+                            <span class="text-white font-bold text-xl md:text-2xl">CRIME</span>
+                            <span class="text-yellow-500 font-bold text-xl md:text-2xl">WATCH.ID</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Search and Login -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" 
+                            placeholder="Apa yang kamu cari?" 
+                            class="w-[400px] rounded-full py-2 px-6 text-sm focus:outline-none"
+                        >
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
                         </button>
-                        <a href="index.html" class="flex items-center">
-                            <img src="./assets/image/logo.png" alt="Logo" class="w-12 h-12" style="object-fit: contain;">
-                            <div class="ml-2">
-                                <span class="text-white font-bold text-xl md:text-2xl">CRIME</span>
-                                <span class="text-yellow-500 font-bold text-xl md:text-2xl">WATCH.ID</span>
-                            </div>
-                        </a>
                     </div>
-                    
-                    <!-- Desktop Search and Login -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <div class="relative">
-                            <input type="text" 
-                                placeholder="Apa yang kamu cari?" 
-                                class="w-[400px] rounded-full py-2 px-6 text-sm focus:outline-none"
-                            >
-                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <button class="bg-white text-red-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100">
-                            Masuk
-                        </button>
-                    </div>
+                    <button class="bg-white text-red-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100">
+                        Masuk
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="bg-red-700 border-t border-red-800 hidden md:block">
-            <div class="container mx-auto">
-                <ul class="flex justify-center space-x-8 lg:space-x-12">
-                    <li><a href="index.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">NEWS</a></li>
-                    <li><a href="polri.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLRI</a></li>
-                    <li><a href="kriminal.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">KRIMINAL</a></li>
-                    <li><a href="bhabin.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">BHABIN</a></li>
-                    <li><a href="lantas.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">LANTAS</a></li>
-                    <li><a href="politik.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLITIK</a></li>
-                    <li><a href="ragam.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">RAGAM</a></li>
-                    <li><a href="indeks.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">INDEKS</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <!-- Desktop Navigation -->
+    <nav class="bg-red-700 border-t border-red-800 hidden md:block">
+        <div class="container mx-auto">
+            <ul class="flex justify-center space-x-8 lg:space-x-12">
+                <li><a href="index.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">NEWS</a></li>
+                <li><a href="polri.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLRI</a></li>
+                <li><a href="kriminal.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">KRIMINAL</a></li>
+                <li><a href="bhabin.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">BHABIN</a></li>
+                <li><a href="lantas.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">LANTAS</a></li>
+                <li><a href="politik.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">POLITIK</a></li>
+                <li><a href="ragam.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">RAGAM</a></li>
+                <li><a href="indeks.html" class="text-white py-3 inline-block hover:text-yellow-500 font-medium text-sm tracking-wide">INDEKS</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
@@ -166,7 +167,7 @@
                     <h1 class="text-2xl sm:text-3xl font-bold">
                         <span class="text-red-600 border-b-2 border-yellow-500 pb-1">POLRI</span>
                     </h1>
-                    <div class="text-sm text-gray-500">12,345 artikel</div>
+                    <!-- <div class="text-sm text-gray-500">12,345 artikel</div> -->
                 </div>
 
                 <!-- Featured Article -->
